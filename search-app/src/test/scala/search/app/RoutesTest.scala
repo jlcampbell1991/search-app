@@ -1,4 +1,4 @@
-package orum.sample
+package search.app
 
 import cats.effect.IO
 import org.http4s._

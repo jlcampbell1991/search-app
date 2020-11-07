@@ -1,4 +1,4 @@
-package orum.sample
+package search.app
 
 import cats.effect.Sync
 import cats.implicits._

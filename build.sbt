@@ -4,9 +4,9 @@ val doobieV = "0.9.0"
 val scalaBcryptV = "4.1"
 val specs2V = "3.8.9"
 
-lazy val `orum-sample` =
+lazy val `search-app` =
   project
-    .in(file("orum-sample"))
+    .in(file("search-app"))
     .enablePlugins(SbtTwirl)
     .enablePlugins(JavaAppPackaging)
     .enablePlugins(DockerPlugin)
@@ -15,7 +15,7 @@ lazy val `orum-sample` =
       dockerEnvVars := Map(
         "PORT" -> "8080"
       ),
-      name := "orum-sample",
+      name := "search-app",
       libraryDependencies ++= Seq(
         "io.circe"              %% "circe-generic"            % circeV,
         "io.circe"              %% "circe-parser"             % circeV,
@@ -40,18 +40,10 @@ lazy val `orum-sample` =
         options.filterNot(s => s.startsWith("-Ywarn") || s.startsWith("-Xlint")))
     )
 
-lazy val `scaffold-scripts` =
-  project
-    .in(file("scaffold-scripts"))
-    .settings(
-      Compile / console / scalacOptions ~= ((options: Seq[String]) =>
-        options.filterNot(s => s.startsWith("-Ywarn") || s.startsWith("-Xlint")))
-    )
-
 lazy val root = project
   .in(file("."))
   .settings(
-    name := "orum-sample-root",
+    name := "search-app-root",
     inThisBuild(
       Seq(
         scalaVersion := "2.13.2",
@@ -60,5 +52,5 @@ lazy val root = project
       )),
   )
   .aggregate(
-    `orum-sample`
+    `search-app`
   )

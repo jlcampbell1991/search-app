@@ -1,4 +1,4 @@
-package orum.sample
+package search.app
 
 import cats.data._
 import cats.effect._
